@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de Mí - Robinson Arriagada</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ============================================= */
+        /* ESTILOS PARA LA PÁGINA "ACERCA DE MÍ"         */
+        /* ============================================= */
+        .page-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .about-text {
+            margin-bottom: 80px;
+        }
+        .about-text h3 {
+            font-family: var(--font-primary);
+            font-size: 2.8rem;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+        .about-text p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+        }
+
+        /* --- ESTILOS PARA TARJETAS DE HABILIDADES --- */
+        .skills-grid {
+            display: grid;
+            /* ======== CAMBIO A 3 COLUMNAS ======== */
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px; /* Un poco menos de espacio para que encajen mejor */
+            text-align: center;
+        }
+        .skill-card {
+            background: var(--light-space);
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .skill-icon {
+            font-size: 2.5rem; /* Icono un poco más pequeño */
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        .skill-card h4 {
+            font-family: var(--font-primary);
+            font-size: 1.3rem; /* Título un poco más pequeño */
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+        .skill-technologies {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+        .skill-technologies span {
+            background: var(--dark-space);
+            color: var(--text-secondary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem; /* Texto de píldoras un poco más pequeño */
+            font-weight: 500;
+        }
+        
+        /* Ajuste para tablets y móviles */
+        @media (max-width: 800px) {
+            .skills-grid {
+                /* Vuelve a 2 columnas en tablets */
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .skills-grid {
+                /* 1 columna en móviles */
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="space space-1"></div>
+        <div class="space space-2"></div>
+    </div>
+
+    <header class="header">
+        <nav class="navigation">
+            <div class="nav-container">
+                <div class="logo"><h1>Robinson Arriagada</h1></div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="about.html">Acerca de Mí</a></li>
+                     <li><a href="portfolio.html">Portafolio</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                    <li class="theme-switch-container"><label class="theme-switch" for="theme-checkbox"><input type="checkbox" id="theme-checkbox" /><div class="slider round"></div></label></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-container">
+        <div class="contact-header">
+            <h2 class="section-title">Acerca de Mí</h2>
+        </div>
+
+        <section class="about-text">
+            <h3>Apasionado por crear experiencias móviles.</h3>
+            <p>
+Soy un desarrollador mobile fullstack enfocado en crear experiencias digitales que inspiren y faciliten la vida de las personas.
+Mi especialidad es el desarrollo de aplicaciones móviles nativas con Kotlin y multiplataforma con Flutter, combinando rendimiento, diseño y usabilidad para lograr productos que se sientan tan bien como funcionan.            </p>
+            <p>
+También cuento con habilidades en desarrollo web y gestión de bases de datos, lo que me permite tener una visión completa del ciclo de desarrollo y construir soluciones sólidas de principio a fin.
+Mi propósito es seguir creciendo dentro del ecosistema móvil, aportando innovación, calidad y una mirada centrada en el usuario a cada proyecto que desarrollo.            </p>
+        </section>
+
+        <section class="skills-section">
+            <h2 class="section-title">Mi Stack Tecnológico</h2>
+            <div class="skills-grid">
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-mobile-alt"></i></div><h4>Mobile</h4><div class="skill-technologies"><span>Kotlin</span><span>Jetpack Compose</span><span>Dart</span><span>Flutter</span></div></div>
+
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-desktop"></i></div><h4>Frontend</h4><div class="skill-technologies"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Bootstrap</span><span>React</span></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-server"></i></div><h4>Backend</h4><div class="skill-technologies"><span>Java</span><span>Spring Boot</span><span>JPA</span><span>JWT</span></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-database"></i></div><h4>Bases de Datos</h4><div class="skill-technologies"><span>SQL</span><span>Oracle DB</span><span>APEX</span><span>SupaBase</span><span>FireBase</span></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-palette"></i></div><h4>Diseño</h4><div class="skill-technologies"><span>Photoshop</span><span>Figma</span><span>Canva</span><span>Google-Stitch</span></div></div>
+                <div class="skill-card"><div class="skill-icon"><i class="fas fa-tools"></i></div><h4>Herramientas</h4><div class="skill-technologies"><span>Git</span><span>GitHub</span><span>Postman</span><span>IA-Copilot</span><span>IA-Gemini</span></div></div>
+
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <p>© 2025 Robinson Arriagada. Todos los derechos reservados.</p>
+            <div class="footer-social">
+                <a href="https://github.com/Robinson-dev" target="_blank" title="Mi GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/robinson-arriagada-14188b44/" target="_blank" title="Mi LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/global.js"></script>
+ 
+   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const generateFloatingDust = (size, selector, totalParticles, duration, color) => {
+            const container = document.querySelector(selector);
+            if (!container) return;
+            const particleColors = [`${color}99`, `${color}BB`, `${color}DD`];
+            const layer = [];
+            for (let i = 0; i < totalParticles; i++) {
+                const current_color = particleColors[Math.floor(Math.random() * particleColors.length)];
+                const x = Math.floor(Math.random() * 100);
+                const y = Math.floor(Math.random() * 100);
+                layer.push(`${x}vw ${y}vh 0 ${current_color}, ${x}vw ${y + 100}vh 0 ${current_color}`);
+            }
+            container.style.setProperty("--size", size);
+            container.style.setProperty("--duration", duration);
+            container.style.setProperty("--space-layer", layer.join(","));
+        };
+
+        const generateTwinklingStars = (selector, totalStars, color) => {
+            const container = document.querySelector(selector);
+            if (!container) return;
+            container.innerHTML = '';
+            for (let i = 0; i < totalStars; i++) {
+                const star = document.createElement('div');
+                star.classList.add('twinkling-star');
+                const size = Math.random() * 2 + 1;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const animDuration = Math.random() * 5 + 3;
+                const animDelay = Math.random() * 5;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${x}vw`;
+                star.style.top = `${y}vh`;
+                star.style.backgroundColor = color;
+                star.style.animationDuration = `${animDuration}s`;
+                star.style.animationDelay = `${animDelay}s`;
+                container.appendChild(star);
+            }
+        };
+
+        const staticColor = '#A0A0A0';
+        
+        generateFloatingDust("1px", ".space-1", 150, "120s", staticColor);
+        generateFloatingDust("2px", ".space-2", 70, "90s", staticColor);
+        generateTwinklingStars(".space-3", 40, staticColor);
+    });
+</script>
+</body>
+</html>

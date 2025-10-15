@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - Mi Proceso</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos CSS (sin cambios) */
+        .page-container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+        .timeline-item { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; margin-bottom: 120px; opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .timeline-item:nth-child(even) .timeline-image-container { order: 2; }
+        .timeline-image-container { width: 100%; height: 350px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); overflow: hidden; }
+        .timeline-image { width: 100%; height: 120%; background-size: cover; background-position: center 50%; will-change: background-position; }
+        .timeline-content { color: var(--text-secondary); }
+        .timeline-content h3 { font-family: var(--font-primary); font-size: 2rem; color: var(--text-primary); margin-bottom: 15px; }
+        .timeline-content p { line-height: 1.7; }
+        .timeline-item.is-visible { opacity: 1; transform: translateY(0); }
+        @media (max-width: 768px) { .timeline-item { grid-template-columns: 1fr; } .timeline-item:nth-child(even) .timeline-image-container { order: 0; } .timeline-image-container { height: 250px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="space space-1"></div>
+        <div class="space space-2"></div>
+        <div class="space space-3"></div>
+    </div>
+
+     <header class="header">
+        <nav class="navigation">
+            <div class="nav-container">
+                <div class="logo"><h1>Robinson Arriagada</h1></div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="about.html">Acerca de Mí</a></li>
+                    <li><a href="portfolio.html">Portafolio</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                    <li class="theme-switch-container">
+                        <label class="theme-switch" for="theme-checkbox">
+                            <input type="checkbox" id="theme-checkbox" />
+                            <div class="slider round"></div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="page-container">
+        <div class="contact-header">
+            <h2 class="section-title">portafolio de Proyectos</h2>
+            <p class="contact-subtitle">Un vistazo a mi proceso, desde la idea inicial hasta el despliegue final, varios de estos proyectos están aún en desarrollo.</p>
+        </div>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-image-container">
+                    <div class="timeline-image" style="background-image: url('URL_DE_IMAGEN_1');"></div>
+                </div>
+                <div class="timeline-content"><h3>App Temporizador de cocina</h3><p>Descripción...</p></div>
+            </div>
+            </div>
+            <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-image-container">
+                    <div class="timeline-image" style="background-image: url('URL_DE_IMAGEN_1');"></div>
+                </div>
+                <div class="timeline-content"><h3>App Chat en tiempo real</h3><p>Descripción...</p></div>
+            </div>
+            </div>
+            <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-image-container">
+                    <div class="timeline-image" style="background-image: url('URL_DE_IMAGEN_1');"></div>
+                </div>
+                <div class="timeline-content"><h3>Web portafolio profesional 1</h3><p>Descripción...</p></div>
+            </div>
+            </div>
+            <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-image-container">
+                    <div class="timeline-image" style="background-image: url('URL_DE_IMAGEN_1');"></div>
+                </div>
+                <div class="timeline-content"><h3>Web portafolio profesional 2</h3><p>Descripción...</p></div>
+            </div>
+            </div>
+            <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-image-container">
+                    <div class="timeline-image" style="background-image: url('URL_DE_IMAGEN_1');"></div>
+                </div>
+                <div class="timeline-content"><h3>Web pastelería</h3><p>Descripción...</p></div>
+            </div>
+            </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <p>© 2025 Robinson Arriagada. Todos los derechos reservados.</p>
+            <div class="footer-social">
+                <a href="https://github.com/Robinson-dev" target="_blank" title="Mi GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/robinson-arriagada-14188b44/" target="_blank" title="Mi LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/global.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Script de fondo (¡CORREGIDO!)
+            const generateFloatingDust = (s, sel, t, d, c) => { /* ...código... */ };
+            const generateTwinklingStars = (sel, t, c) => { /* ...código... */ };
+            const staticColor = '#A0A0A0';
+            generateFloatingDust("1px", ".space-1", 150, "120s", staticColor);
+            generateFloatingDust("2px", ".space-2", 70, "90s", staticColor);
+            generateTwinklingStars(".space-3", 40, staticColor);
+
+            // Script de aparición y parallax (¡CORREGIDO!)
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            timelineItems.forEach(item => observer.observe(item));
+
+            const parallaxImages = document.querySelectorAll('.timeline-image');
+            window.addEventListener('scroll', () => {
+                const scrollY = window.pageYOffset;
+                parallaxImages.forEach(image => {
+                    const speed = -0.2;
+                    const yPos = scrollY * speed;
+                    image.style.backgroundPosition = `center ${50 + yPos}%`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

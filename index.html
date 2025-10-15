@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robinson Dev</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="space space-1"></div>
+        <div class="space space-2"></div>
+        <div class="space space-3"></div>
+    </div>
+
+    <header class="header">
+        <nav class="navigation">
+            <div class="nav-container">
+                <div class="logo"><h1>Robinson Arriagada</h1></div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="about.html">Acerca de Mí</a></li>
+                    <li><a href="portfolio.html">Portafolio</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                    <li class="theme-switch-container">
+                        <label class="theme-switch" for="theme-checkbox">
+                            <input type="checkbox" id="theme-checkbox" />
+                            <div class="slider round"></div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="index-layout">
+        
+        <div class="annotation-card">
+            <h3>Componentes de la Card</h3>
+            <ul>
+                <li><strong>Identificador (HU):</strong> Etiqueta única (ej. "HU-01") para el seguimiento de la Historia de Usuario en metodologías ágiles.</li>
+                <li><strong>Título:</strong> Nombre claro y conciso de la funcionalidad, como "Login Social".</li>
+            </ul>
+        </div>
+
+        <div class="mobile-portfolio-main">
+            <div class="mobile-intro-text">
+                <h2>Desarrollador Mobile</h2>
+                <p>Diseño soluciones móviles que conectan las ideas con la tecnología.<br><strong>Explora cómo transformo necesidades en funcionalidades.</strong></p>
+                            <p><strong>Arrastra las tarjetas y descúbrelas.</strong></p>
+
+            </div>
+            <div class="mobile-mockup">
+                <div class="card-stack">
+                    <div class="mobile-project-card" style="background-color: #5d85b6;">
+                        <div class="card-content">
+                            <span class="project-number">HU-05</span>
+                            <h3>Notificaciones Push</h3>
+                            <p>Como <strong>usuario activo</strong>, quiero <strong>recibir notificaciones personalizadas</strong> sobre ofertas para no perderme ninguna oportunidad.</p>
+                            <div class="project-tech">
+                                <span>FCM</span><span>WorkManager</span><span>Coroutines</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-project-card" style="background-color: #857491;">
+                        <div class="card-content" style="color: #181818;">
+                            <span class="project-number">HU-04</span>
+                            <h3>Modo Offline</h3>
+                            <p>Como <strong>viajero frecuente</strong>, quiero <strong>acceder a mis documentos</strong> sin conexión a internet para poder trabajar desde cualquier lugar.</p>
+                            <div class="project-tech">
+                                <span>Room Cache</span><span>SyncAdapter</span><span>WorkManager</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-project-card" style="background-color: #c07d8c;">
+                        <div class="card-content">
+                            <span class="project-number">HU-03</span>
+                            <h3>Login Biométrico</h3>
+                            <p>Como <strong>usuario de banca</strong>, quiero <strong>iniciar sesión con mi huella</strong> para acceder a mi cuenta de forma rápida y segura.</p>
+                            <div class="project-tech">
+                                <span>BiometricPrompt</span><span>Keystore</span><span>Cipher</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-project-card" style="background-color: #dd8083;">
+                        <div class="card-content">
+                            <span class="project-number">HU-02</span>
+                            <h3>Lista de Deseos</h3>
+                            <p>Como <strong>cliente recurrente</strong>, quiero <strong>guardar productos favoritos</strong> en una lista para comprarlos más tarde.</p>
+                            <div class="project-tech">
+                                <span>Room DB</span><span>REST API</span><span>Jetpack Compose</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-project-card" style="background-color: #d8a88f;">
+                        <div class="card-content">
+                            <span class="project-number">HU-01</span>
+                            <h3>Login Social</h3>
+                            <p>Como <strong>nuevo usuario</strong>, quiero <strong>registrarme con redes sociales</strong> para acceder a la app de forma rápida y segura.</p>
+                            <div class="project-tech">
+                                <span>Firebase Auth</span><span>OAuth 2.0</span><span>Kotlin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="annotation-card">
+            <h3>Propósito y Stack</h3>
+            <ul>
+                <li><strong>Descripción Funcional:</strong> Define el "quién", "qué" y "porqué" desde la perspectiva del usuario para guiar el desarrollo.</li>
+                <li><strong>Stack Tecnológico:</strong> Muestra las herramientas clave utilizadas para implementar la funcionalidad específica.</li>
+            </ul>
+        </div>
+
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <p>© 2025 Robinson Arriagada. Todos los derechos reservados.</p>
+            <div class="footer-social">
+                <a href="https://github.com/Robinson-dev" target="_blank" title="Mi GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/robinson-arriagada-14188b44/" target="_blank" title="Mi LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/index.js"></script>
+    <script src="js/global.js"></script>
+</body>
+</html>

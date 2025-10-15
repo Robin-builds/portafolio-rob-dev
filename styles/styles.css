@@ -1,0 +1,312 @@
+/* ============================================= */
+/* VARIABLES GLOBALES (Paleta Nardo & Tierra)    */
+/* ============================================= */
+:root {
+    --dark-space: #181818;
+    --light-space: #333538;
+    --accent-color: #B07D62;
+    --text-primary: #EAEAEA;
+    --text-secondary: #A0A0A0;
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Roboto Mono', monospace;
+}
+
+/* ============================================= */
+/* RESET Y ESTILOS GLOBALES                      */
+/* ============================================= */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: transparent;
+    padding-top: 70px; /* Espacio para el header fijo */
+}
+
+/* ============================================= */
+/* CONTENEDOR DE PÁGINA UNIVERSAL (NUEVO)        */
+/* ============================================= */
+.page-container {
+    max-width: 1100px; /* Ancho máximo estándar para el contenido */
+    margin: 0 auto;
+    padding: 60px 20px; /* Relleno superior/inferior y lateral */
+}
+
+/* ============================================= */
+/* FONDO ANIMADO                                 */
+/* ============================================= */
+.container { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: var(--dark-space); overflow: hidden; z-index: -1; }
+.space { width: var(--size); height: var(--size); background: white; box-shadow: var(--space-layer); position: absolute; top: 0; left: 0; opacity: 0.75; animation: move var(--duration) linear infinite; }
+@keyframes move { from { transform: translateY(0); } to { transform: translateY(-100vh); } }
+
+/* ============================================= */
+/* HEADER Y NAVEGACIÓN                           */
+/* ============================================= */
+.header { background: rgba(51, 53, 56, 0.8); backdrop-filter: blur(10px); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; font-family: var(--font-primary); }
+.nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; height: 70px; }
+.logo h1 { color: var(--text-primary); font-size: 1.8rem; margin: 0; }
+.nav-menu { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; }
+.nav-menu a { text-decoration: none; color: var(--text-primary); font-weight: 500; transition: color 0.3s ease; }
+.nav-menu a:hover { color: var(--accent-color); }
+
+/* (El resto de estilos de componentes como botones, tarjetas, etc., se mantienen igual) */
+/* ... pega el resto de tus estilos para .mobile-mockup, .footer, etc. aquí ... */
+/* ============================================= */
+/* ESTILOS DE PÁGINAS PRINCIPALES (MAIN)         */
+/* ============================================= */
+.mobile-portfolio-main, .gallery-main {
+    /* Relleno superior e inferior para dar aire al contenido */
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* ============================================= */
+/* PORTAFOLIO MÓVIL (INDEX.HTML)                 */
+/* ============================================= */
+.mobile-portfolio-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 70px);
+    padding: 20px;
+    overflow: hidden;
+    font-family: var(--font-primary);
+}
+.mobile-intro-text { text-align: center; margin-bottom: 40px; }
+.mobile-intro-text h2 { font-size: 2.5rem; color: var(--text-primary); margin-bottom: 10px; }
+.mobile-intro-text p { font-size: 1.1rem; color: var(--text-secondary); }
+.mobile-mockup { width: 380px; height: 750px; background: var(--dark-space); border: 10px solid var(--light-space); border-radius: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.4); padding: 20px; box-sizing: border-box; }
+.card-stack { width: 100%; height: 100%; position: relative; perspective: 1000px; }
+.mobile-project-card { width: 100%; height: 100%; border-radius: 20px; position: absolute; top: 0; left: 0; cursor: grab; user-select: none; will-change: transform, opacity; transition: transform 0.5s ease, opacity 0.5s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow: hidden; }
+.card-content { padding: 30px; color: var(--dark-space); display: flex; flex-direction: column; height: 100%;text-align: center; }
+.project-number { font-size: 1.2rem; font-weight: 700; opacity: 0.5; }
+.card-content h3 { font-size: 2.5rem; margin: 20px 0; }
+.card-content p { font-size: 1.1rem; line-height: 1.6; flex-grow: 1; }
+.project-tech { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
+.project-tech span { background: var(--dark-space); color: var(--accent-color); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+.card--dragging { transition: none; }
+.card--out { transform: translateY(-100px) rotate(-15deg) scale(0.9) !important; opacity: 0 !important; }
+
+/* ============================================= */
+/* FOOTER UNIVERSAL                              */
+/* ============================================= */
+.footer {
+    background-color: transparent;
+    color: var(--text-secondary);
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid var(--light-space);
+}
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.footer-social a {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-social a:hover {
+    color: var(--accent-color);
+}
+
+/* ============================================= */
+/* RESPONSIVE                                    */
+/* ============================================= */
+@media (max-width: 768px) {
+    body {
+        /* Aumentamos el espacio para el header que ahora ocupa más altura */
+        padding-top: 120px; 
+    }
+    .nav-container {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+    }
+    .nav-menu {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    .mobile-mockup {
+        width: 95%;
+        max-width: 380px;
+        height: 70vh;
+    }
+}
+
+/* ============================================= */
+/* ESTILOS PARA EL INTERRUPTOR DE TEMA (SWITCH)  */
+/* ============================================= */
+.theme-switch-container {
+    display: flex;
+    align-items: center;
+}
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--light-space);
+    transition: .4s;
+    border-radius: 28px;
+    border: 1px solid var(--text-secondary);
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--dark-space);
+    transition: .4s;
+    border-radius: 50%;
+}
+input:checked + .slider {
+    background-color: var(--accent-color);
+}
+input:checked + .slider:before {
+    transform: translateX(22px);
+    background-color: white;
+}
+
+/* ============================================= */
+/* DEFINICIÓN DEL TEMA CLARO (LIGHT MODE)        */
+/* ============================================= */
+body.light-mode {
+    /* Invertimos los colores principales */
+    --dark-space: #EAEAEA;
+    --light-space: #FFFFFF;
+    --text-primary: #181818;
+    --text-secondary: #6c757d;
+    --accent-color: #8D99AE; 
+}
+
+/* Ajustes específicos para el modo claro */
+body.light-mode .header {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra para que se vea sobre fondo blanco */
+}
+body.light-mode .mobile-mockup {
+    border-color: #dcdcdc;
+    background: #f7f7f7;
+}
+body.light-mode .skill-card {
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+body.light-mode .skill-technologies span {
+    background: #EAEAEA;
+    color: #333;
+}
+body.light-mode .footer {
+    border-top-color: #dcdcdc;
+}
+
+/* ============================================= */
+/* ESTILOS PARA ESTRELLAS TITILANTES (NUEVO)     */
+/* ============================================= */
+
+/* Animación de titileo */
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Estilo para cada estrella titilante individual */
+.twinkling-star {
+    position: absolute;
+    background-color: white; /* Color base, JS lo puede cambiar */
+    border-radius: 50%;
+    animation: twinkle 4s infinite ease-in-out; /* Duración base de la animación */
+}
+
+ /* ============================================= */
+        /* ESTILOS PARA LA NUEVA VISTA DE INICIO         */
+        /* ============================================= */
+        .index-layout {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px; /* Espacio entre las tarjetas y el mockup */
+            padding: 20px;
+            width: 100%;
+            min-height: calc(100vh - 70px); /* Ocupa la altura de la pantalla menos el header */
+        }
+
+        .annotation-card {
+            background: rgba(143, 144, 146, 0.5); /* Fondo transparente */
+            border: 1px solid #284c8b; /* Borde azul claro */
+            border-radius: 15px;
+            padding: 25px;
+            width: 320px; /* Ancho fijo para las tarjetas laterales */
+            backdrop-filter: blur(5px); /* Efecto cristal esmerilado */
+            color: var(--text-secondary);
+        }
+
+        .annotation-card h3 {
+            font-family: var(--font-primary);
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        .annotation-card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .annotation-card li {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .annotation-card strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Ocultar tarjetas de anotaciones en pantallas más pequeñas */
+        @media (max-width: 1200px) {
+            .annotation-card {
+                display: none;
+            }
+            .index-layout {
+                padding-top: 0;
+            }
+        }
