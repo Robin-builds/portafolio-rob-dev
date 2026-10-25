@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import type { VideoMedia } from "@/content/types";
+import Pending from "./Pending";
 import styles from "./PhoneVideo.module.css";
 
 // Único componente de cliente de la feature (plan.md, Principio IV).
@@ -30,6 +31,17 @@ export default function PhoneVideo({ video }: { video: VideoMedia }) {
     return () => motionOk.removeEventListener("change", sync);
   }, []);
 
+  // Modo borrador: sin video todavía, el marco muestra el pendiente
+  if (video.sources.length === 0) {
+    return (
+      <div className={styles.frame}>
+        <div className={styles.video}>
+          <Pending label="video del Home (≤ 15 s)" block />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.frame}>
       <video
@@ -39,7 +51,7 @@ export default function PhoneVideo({ video }: { video: VideoMedia }) {
         playsInline
         loop
         preload="metadata"
-        poster={video.poster}
+        poster={video.poster || undefined}
         width={video.width}
         height={video.height}
         aria-label={video.alt}

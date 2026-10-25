@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ContactLinks from "@/components/ContactLinks";
+import { orPending } from "@/components/Pending";
 import PhoneVideo from "@/components/PhoneVideo";
 import ProjectCard from "@/components/ProjectCard";
 import { profile } from "@/content/profile";
@@ -29,8 +30,8 @@ export default function Home() {
           <h1 id="hero-title" className={styles.tagline}>
             {profile.tagline}
           </h1>
-          <p className={styles.focus}>{profile.focusLine}</p>
-          <p className={styles.differentiator}>{profile.differentiatorLine}</p>
+          <p className={styles.focus}>{orPending(profile.focusLine, "línea de foco")}</p>
+          <p className={styles.differentiator}>{orPending(profile.differentiatorLine, "línea de diferenciador")}</p>
           <p>
             <Link href="/proyectos" className={styles.cta}>
               Ver proyectos

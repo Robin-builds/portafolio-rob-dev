@@ -6,9 +6,15 @@ import type { Platform, Project } from "@/content/types";
 // Única capa entre el contenido y las páginas (abstracción declarada en plan.md):
 // consultas de lectura + validación de las reglas de la spec y del Principio II.
 
+// Modo estricto: producción en Vercel (o CONTENT_STRICT=1). Ahí cualquier regla rota
+// hace fallar el build. En local y en previews el sitio funciona en "modo borrador":
+// los datos faltantes se muestran como "Pendiente" y se listan en un banner (research.md R8).
+export const isStrict = process.env.VERCEL_ENV === "production" || process.env.CONTENT_STRICT === "1";
+
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-// Marcadores típicos de texto de plantilla que nunca deben llegar a producción
-const PLACEHOLDER_PATTERN = /\bLorem\b|\bTODO\b|Descripci[oó]n\.\.\.|\[[^\]]*\]/i;
+// Marcadores típicos de texto de plantilla que nunca deben llegar a producción.
+// Sin flag /i a propósito: "TODO" en mayúsculas es marcador, "todo" es español normal.
+const PLACEHOLDER_PATTERN = /\bLorem\b|\bTODO\b|Descripci[oó]n\.\.\.|\[[^\]]*\]/;
 
 /** Recorre recursivamente un objeto y devuelve [ruta, texto] por cada string. */
 function collectStrings(value: unknown, path: string): [string, string][] {
@@ -20,13 +26,14 @@ function collectStrings(value: unknown, path: string): [string, string][] {
   return [];
 }
 
-/** Lanza un error con todas las reglas rotas; se ejecuta al cargar el módulo (build y dev). */
-export function validateContent(): void {
+/** Devuelve la lista de reglas rotas del contenido (vacía si todo está bien). */
+export function validateContent(): string[] {
   const errors: string[] = [];
 
-  // Perfil: todos los textos obligatorios y al menos una fuente de video
+  // Perfil: todos los textos obligatorios y al menos una fuente de video.
+  // siteUrl es opcional: si falta, se usa el dominio de producción de Vercel (getSiteUrl).
   for (const [path, text] of collectStrings(profile, "profile")) {
-    if (text.trim() === "") errors.push(`${path} está vacío`);
+    if (path !== "profile.siteUrl" && text.trim() === "") errors.push(`${path} está vacío`);
   }
   if (profile.heroVideo.sources.length === 0) errors.push("profile.heroVideo.sources está vacío");
 
@@ -61,18 +68,34 @@ export function validateContent(): void {
     if (text.trim() === "") errors.push(`${path} está vacío`);
   }
 
-  // Textos de todo el contenido: sin alt vacíos ni marcadores de plantilla
+  // Proyectos: ningún texto vacío (campos pendientes del autor, rutas de medios, alt)
+  for (const [path, text] of collectStrings(projects, "projects")) {
+    if (text.trim() === "") errors.push(`${path} está vacío`);
+  }
+
+  // Textos de todo el contenido: sin marcadores de plantilla
   for (const [path, text] of collectStrings({ projects, milestones, stackBlocks, methodLine }, "content")) {
-    if (path.endsWith(".alt") && text.trim() === "") errors.push(`${path} está vacío`);
     if (PLACEHOLDER_PATTERN.test(text)) errors.push(`${path} contiene texto de plantilla: "${text}"`);
   }
 
-  if (errors.length > 0) {
-    throw new Error(`Contenido inválido (ver specs/001-sitio-base-portafolio/data-model.md):\n- ${errors.join("\n- ")}`);
-  }
+  return errors;
 }
 
-validateContent();
+/** Reglas rotas del contenido actual, para el banner del modo borrador. */
+export const contentIssues = validateContent();
+
+if (contentIssues.length > 0) {
+  const report = `Contenido incompleto (ver specs/001-sitio-base-portafolio/data-model.md):\n- ${contentIssues.join("\n- ")}`;
+  // Producción nunca se publica con datos faltantes (Principio II)
+  if (isStrict) throw new Error(report);
+}
+
+/** URL pública del sitio: la del perfil, o el dominio de producción de Vercel, o localhost. */
+export function getSiteUrl(): string {
+  if (profile.siteUrl.trim()) return profile.siteUrl.replace(/\/$/, "");
+  const vercelHost = process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
+  return vercelHost ? `https://${vercelHost}` : "http://localhost:3000";
+}
 
 /** Los 3 destacados, Android primero. */
 export function getFeaturedProjects(): Project[] {
@@ -97,7 +120,7 @@ export function getCaseStudySlugs(): string[] {
   return projects.filter((p) => p.caseStudy).map((p) => p.slug);
 }
 
-/** Contenido de "Sobre mí" ya validado. */
+/** Contenido de "Sobre mí". */
 export function getAbout() {
   return { milestones, stackBlocks, methodLine };
 }

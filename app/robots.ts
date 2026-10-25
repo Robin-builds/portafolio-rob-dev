@@ -1,10 +1,10 @@
 import type { MetadataRoute } from "next";
-import { profile } from "@/content/profile";
+import { getSiteUrl } from "@/lib/content";
 
-// Permite todo y apunta al sitemap (FR-019)
+// Permite todo y apunta al sitemap (FR-019). Los previews de Vercel ya llevan noindex.
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: `${profile.siteUrl.replace(/\/$/, "")}/sitemap.xml`,
+    sitemap: `${getSiteUrl()}/sitemap.xml`,
   };
 }

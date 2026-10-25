@@ -15,14 +15,16 @@ implementación.
 ## 1. Compilación y reglas de contenido
 
 ```bash
-npx tsc --noEmit        # TypeScript strict sin errores
-npm run lint            # ESLint del scaffold
-npm run build           # Falla si validateContent() detecta una regla rota
+npm run typecheck                 # rutas tipadas + TypeScript strict sin errores
+npm run lint                      # ESLint del scaffold
+npm run build                     # modo borrador: compila y lista los pendientes en el banner
+CONTENT_STRICT=1 npm run build    # como producción: falla si validateContent() detecta una regla rota
 ```
 
-**Esperado**: los tres comandos terminan sin errores. Prueba negativa: marcar un 4.º proyecto como
-`featured` o dejar un caso de estudio con 1 ADR debe hacer fallar `npm run build` con un mensaje
-claro. Revertir después.
+**Esperado**: los cuatro comandos terminan sin errores cuando el contenido está completo. Prueba
+negativa: marcar un 4.º proyecto como `featured` o dejar un caso de estudio con 1 ADR debe hacer
+fallar el build estricto con un mensaje claro, y en modo borrador debe aparecer en el banner.
+Revertir después.
 
 ## 2. Recorrido funcional (`npm run start`, http://localhost:3000)
 

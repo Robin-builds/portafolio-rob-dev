@@ -50,8 +50,9 @@ Un solo proyecto Next.js en la raíz del repositorio, sin `src/`: `app/`, `compo
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-**Nota**: `validateContent()` hace fallar el build mientras no existan los 3 destacados reales.
-El build completo solo pasa desde T020; en esta fase la verificación es `npm run typecheck`.
+**Nota**: desde T056 (modo borrador) `validateContent()` solo hace fallar el build en producción
+(`VERCEL_ENV=production` o `CONTENT_STRICT=1`); en local y previews los datos faltantes se ven
+como "Pendiente" y se listan en un banner (research.md R8b).
 
 - [X] T007 Crear los tipos del contenido en `content/types.ts` exactamente como en [contracts/content-schema.md](./contracts/content-schema.md): `Platform = "android" | "web"`, `ProjectStatus = "publicado" | "en-desarrollo" | "prototipo"`, `Media`, `ProjectLink` (`kind: "play-store" | "demo" | "repo"`), `Adr`, `CaseStudy` (con `demo: Media[]`), `Project` (con `cover?: Media` opcional y `caseStudy?: CaseStudy`), `Milestone`, `StackBlock` (`title: "Android" | "Web" | "Backend/Datos"`), `Profile`
 - [ ] T008 (autor) Completar `content/profile.ts` con datos reales: nombre, `tagline` "Software Engineer: Android y Web", `focusLine`, `differentiatorLine`, `email`, `linkedinUrl`, `githubUrl`, `cvPath`, `siteUrl` (URL de Vercel mientras no haya dominio) y `heroVideo`
@@ -65,6 +66,7 @@ El build completo solo pasa desde T020; en esta fase la verificación es `npm ru
 - [X] T016 Crear `app/layout.tsx`: `<html lang="es">`, fuentes provisionales vía `next/font` (verificar la firma vigente en la documentación de Next.js antes de escribir) como variables CSS, `metadata` con `metadataBase` desde `profile.siteUrl` y plantilla de título, `SiteHeader`, `<main>` y `SiteFooter`, link "Saltar al contenido"
 - [X] T017 [P] Crear `app/not-found.tsx`: 404 global en español con link al Home
 - [X] T018 [P] Crear `components/StatusBadge.tsx`: mapea `publicado` → "Publicado", `en-desarrollo` → "En desarrollo", `prototipo` → "Prototipo"; `en-desarrollo` y `prototipo` nunca se rotulan como terminados (FR-008)
+- [X] T056 Modo borrador (agregada el 2026-10-25, research.md R8b): `isStrict` y `contentIssues` en `lib/content.ts` (falla solo en producción), `getSiteUrl()` con respaldo `VERCEL_PROJECT_PRODUCTION_URL`, `components/Pending.tsx` (marca "Pendiente" y `orPending()`), `components/DraftBanner.tsx` en `app/layout.tsx`, y páginas/componentes que toleran campos vacíos
 
 **Checkpoint**: Foundation ready - user story implementation can now begin
 

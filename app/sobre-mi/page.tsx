@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactLinks from "@/components/ContactLinks";
+import Pending, { orPending } from "@/components/Pending";
 import Timeline from "@/components/Timeline";
 import { profile } from "@/content/profile";
 import { getAbout } from "@/lib/content";
@@ -29,31 +30,39 @@ export default function AboutPage() {
 
       <section aria-labelledby="stack">
         <h2 id="stack">Stack</h2>
-        <div className={styles.blocks}>
-          {stackBlocks.map((block) => (
-            <div key={block.title} className={styles.block}>
-              <h3>{block.title}</h3>
-              <ul>
-                {block.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        {stackBlocks.length > 0 ? (
+          <div className={styles.blocks}>
+            {stackBlocks.map((block) => (
+              <div key={block.title} className={styles.block}>
+                <h3>{block.title}</h3>
+                <ul>
+                  {block.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <Pending label="bloques de stack Android, Web y Backend/Datos (content/about.ts)" block />
+        )}
       </section>
 
       <section aria-labelledby="metodo">
         <h2 id="metodo">Cómo trabajo</h2>
-        <p>{methodLine}</p>
+        <p>{orPending(methodLine, "línea de método")}</p>
       </section>
 
       <section aria-labelledby="cv">
         <h2 id="cv">CV y perfiles</h2>
         <p>
-          <a href={profile.cvPath} download className={styles.cv}>
-            Descargar CV (PDF)
-          </a>
+          {profile.cvPath ? (
+            <a href={profile.cvPath} download className={styles.cv}>
+              Descargar CV (PDF)
+            </a>
+          ) : (
+            <Pending label="CV en PDF" />
+          )}
         </p>
         <ContactLinks showGithub />
       </section>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import AdrList from "@/components/AdrList";
 import MediaView from "@/components/MediaView";
+import Pending, { orPending } from "@/components/Pending";
 import ProjectLinks from "@/components/ProjectLinks";
 import StatusBadge from "@/components/StatusBadge";
 import { getCaseStudySlugs, getProjectWithCaseStudy } from "@/lib/content";
@@ -54,11 +55,11 @@ export default async function CaseStudyPage({ params }: PageProps<"/proyectos/[s
         <h2 id="problema">Problema y contexto de negocio</h2>
         <dl className={styles.facts}>
           <dt>Para quién es</dt>
-          <dd>{cs.businessContext.audience}</dd>
+          <dd>{orPending(cs.businessContext.audience, "para quién es")}</dd>
           <dt>Qué dolor resuelve</dt>
-          <dd>{cs.businessContext.pain}</dd>
+          <dd>{orPending(cs.businessContext.pain, "qué dolor resuelve")}</dd>
           <dt>Por qué ahora</dt>
-          <dd>{cs.businessContext.whyNow}</dd>
+          <dd>{orPending(cs.businessContext.whyNow, "por qué ahora")}</dd>
         </dl>
       </section>
 
@@ -90,16 +91,18 @@ export default async function CaseStudyPage({ params }: PageProps<"/proyectos/[s
       <section aria-labelledby="demo">
         <h2 id="demo">Demo</h2>
         <div className={styles.media}>
-          {cs.demo.map((media, i) => (
-            <MediaView key={i} media={media} />
-          ))}
+          {cs.demo.length > 0 ? (
+            cs.demo.map((media, i) => <MediaView key={i} media={media} label="demo" />)
+          ) : (
+            <Pending label="al menos 1 captura o video real" block />
+          )}
         </div>
       </section>
 
       {/* 4. Arquitectura */}
       <section aria-labelledby="arquitectura">
         <h2 id="arquitectura">Arquitectura</h2>
-        <MediaView media={cs.architecture} />
+        <MediaView media={cs.architecture} label="diagrama de arquitectura" />
       </section>
 
       {/* 5. Decisiones técnicas */}

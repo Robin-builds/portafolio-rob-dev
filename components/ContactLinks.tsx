@@ -1,4 +1,5 @@
 import { profile } from "@/content/profile";
+import Pending from "./Pending";
 import styles from "./ContactLinks.module.css";
 
 type Props = {
@@ -10,18 +11,30 @@ export default function ContactLinks({ showGithub = false }: Props) {
   return (
     <ul className={styles.list}>
       <li>
-        <a href={`mailto:${profile.email}`}>Escríbeme a {profile.email}</a>
+        {profile.email ? (
+          <a href={`mailto:${profile.email}`}>Escríbeme a {profile.email}</a>
+        ) : (
+          <Pending label="email" />
+        )}
       </li>
       <li>
-        <a href={profile.linkedinUrl} rel="me noopener" target="_blank">
-          LinkedIn<span className="visually-hidden"> (se abre en una pestaña nueva)</span>
-        </a>
+        {profile.linkedinUrl ? (
+          <a href={profile.linkedinUrl} rel="me noopener" target="_blank">
+            LinkedIn<span className="visually-hidden"> (se abre en una pestaña nueva)</span>
+          </a>
+        ) : (
+          <Pending label="LinkedIn" />
+        )}
       </li>
       {showGithub && (
         <li>
-          <a href={profile.githubUrl} rel="me noopener" target="_blank">
-            GitHub<span className="visually-hidden"> (se abre en una pestaña nueva)</span>
-          </a>
+          {profile.githubUrl ? (
+            <a href={profile.githubUrl} rel="me noopener" target="_blank">
+              GitHub<span className="visually-hidden"> (se abre en una pestaña nueva)</span>
+            </a>
+          ) : (
+            <Pending label="GitHub" />
+          )}
         </li>
       )}
     </ul>

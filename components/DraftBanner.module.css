@@ -1,0 +1,21 @@
+.banner {
+  padding: var(--space-2) var(--gutter);
+  background: var(--color-pending-bg);
+  border-bottom: 2px dashed var(--color-pending);
+  color: var(--color-pending-text);
+  font-size: var(--text-sm);
+}
+
+.banner summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding-block: var(--space-1);
+}
+
+.list {
+  max-height: 40vh;
+  overflow-y: auto;
+  margin: var(--space-2) 0 0;
+  padding-left: var(--space-6);
+  font-family: ui-monospace, monospace;
+}

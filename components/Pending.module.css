@@ -1,0 +1,23 @@
+/* Estilo deliberadamente llamativo: un pendiente nunca debe pasar por contenido real */
+.inline,
+.block {
+  border: 2px dashed var(--color-pending);
+  border-radius: var(--radius-sm);
+  background: var(--color-pending-bg);
+  color: var(--color-pending-text);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.inline {
+  display: inline-block;
+  padding: 0 var(--space-2);
+}
+
+.block {
+  display: grid;
+  place-items: center;
+  min-height: 8rem;
+  padding: var(--space-4);
+  text-align: center;
+}

@@ -54,7 +54,9 @@ verifican al compilar: si el contenido las rompe, el build falla. Esta feature n
 **Abstracción declarada (Principio IV)**: `lib/content.ts` agrupa las consultas al contenido
 (destacados, filtro por plataforma, búsqueda por slug) y una función de validación que se ejecuta en
 build. Motivo: es el único lugar donde se puede hacer cumplir la spec sobre el contenido sin tests ni
-dependencias extra.
+dependencias extra. Desde el 2026-10-25 (aprobado por el autor) la validación solo bloquea el
+build en producción; en local y previews opera en "modo borrador" con marcas "Pendiente" y un
+banner de pendientes (componentes `Pending` y `DraftBanner`; ver research.md R8b).
 
 **Decisión confirmada (Principio IV, 2026-10-24)**: sin segmento `[lang]` en la 001; rutas planas
 solo en español (ver [research.md](./research.md#r1-rutas-y-segmento-lang)).

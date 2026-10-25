@@ -91,6 +91,18 @@ Las firmas de API citadas se verificaron en la documentación vigente de Next.js
 - **Alternatives considered**: Tests con un runner (agrega dependencia); solo revisión manual (no se
   hace cumplir).
 
+### R8b. Modo borrador (enmienda al plan, aprobada por el autor el 2026-10-25)
+
+- **Decision**: La validación de R8 solo hace fallar el build en modo estricto: producción
+  en Vercel (`VERCEL_ENV=production`) o `CONTENT_STRICT=1`. En local y en previews el sitio
+  funciona en "modo borrador": cada dato faltante se muestra como una marca "Pendiente" y un
+  banner lista todas las reglas rotas. `profile.siteUrl` pasa a ser opcional: si falta, se usa
+  `VERCEL_PROJECT_PRODUCTION_URL`.
+- **Rationale**: Con la validación siempre estricta, un solo dato faltante (p. ej. un `whyNow`)
+  bloqueaba el desarrollo y los previews. Producción sigue protegida igual (Principio II).
+- **Alternatives considered**: Datos de prueba en el repo (riesgo de publicarlos); campos
+  opcionales en el esquema (relajaría las reglas también en producción).
+
 ## R9. Verificación de links y calidad
 
 - **Decision**: Verificación manual documentada en [quickstart.md](./quickstart.md): recorrer los

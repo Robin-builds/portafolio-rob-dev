@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/content/types";
+import { orPending } from "./Pending";
 import ProjectLinks from "./ProjectLinks";
 import StatusBadge from "./StatusBadge";
 import styles from "./ProjectCard.module.css";
@@ -20,7 +21,7 @@ export default function ProjectCard({ project, headingLevel = "h3" }: Props) {
 
   return (
     <article className={styles.card}>
-      {project.cover?.kind === "image" && (
+      {project.cover?.kind === "image" && project.cover.src && (
         <Image
           className={styles.cover}
           src={project.cover.src}
@@ -38,13 +39,13 @@ export default function ProjectCard({ project, headingLevel = "h3" }: Props) {
         <Heading className={styles.title}>
           {hasCaseStudy ? <Link href={`/proyectos/${project.slug}`}>{project.name}</Link> : project.name}
         </Heading>
-        <p className={styles.summary}>{project.summary}</p>
+        <p className={styles.summary}>{orPending(project.summary, "resumen")}</p>
         {!hasCaseStudy && (
           <dl className={styles.facts}>
             <dt>Problema</dt>
-            <dd>{project.problem}</dd>
+            <dd>{orPending(project.problem, "problema")}</dd>
             <dt>Mi rol</dt>
-            <dd>{project.role}</dd>
+            <dd>{orPending(project.role, "rol")}</dd>
           </dl>
         )}
         <ul className={styles.stack} aria-label="Stack">
