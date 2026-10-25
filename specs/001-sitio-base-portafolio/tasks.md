@@ -113,11 +113,11 @@ El build completo solo pasa desde T020; en esta fase la verificación es `npm ru
 
 ### Implementation for User Story 3
 
-- [ ] T028 [P] [US3] Crear `components/AdrList.tsx` (+ `.module.css`): cada ADR con título, contexto, decisión, alternativa descartada y consecuencia
-- [ ] T029 [P] [US3] Crear `components/MediaView.tsx`: renderiza `Media` de tipo imagen con `next/image` (`width`, `height`, `alt`) o video con `<video controls muted playsInline preload="none" poster>`
-- [ ] T030 [US3] Implementar `app/proyectos/[slug]/page.tsx` (+ `page.module.css`): `params` como `Promise`, `generateStaticParams()` desde `getCaseStudySlugs()`, `export const dynamicParams = false`; secciones en este orden: 1) Problema y contexto de negocio, 2) Decisión de producto (dentro/fuera/por qué), 3) Demo (`MediaView` por cada elemento de `demo`), 4) Arquitectura (diagrama SVG con `alt`), 5) Decisiones técnicas (`AdrList`), 6) Qué haría distinto, 7) Resultado y links (estado, métricas solo si existen con fuente, links, `specUrl` solo si existe) (FR-009–FR-011)
-- [ ] T031 [US3] Agregar `generateMetadata` en `app/proyectos/[slug]/page.tsx` con título y descripción del proyecto
-- [ ] T032 [P] [US3] Crear `app/proyectos/[slug]/not-found.tsx`: 404 con link a `/proyectos` (FR-013)
+- [X] T028 [P] [US3] Crear `components/AdrList.tsx` (+ `.module.css`): cada ADR con título, contexto, decisión, alternativa descartada y consecuencia
+- [X] T029 [P] [US3] Crear `components/MediaView.tsx`: renderiza `Media` de tipo imagen con `next/image` (`width`, `height`, `alt`) o video con `<video controls muted playsInline preload="none" poster>`
+- [X] T030 [US3] Implementar `app/proyectos/[slug]/page.tsx` (+ `page.module.css`): `params` como `Promise`, `generateStaticParams()` desde `getCaseStudySlugs()`, `export const dynamicParams = false`; secciones en este orden: 1) Problema y contexto de negocio, 2) Decisión de producto (dentro/fuera/por qué), 3) Demo (`MediaView` por cada elemento de `demo`), 4) Arquitectura (diagrama SVG con `alt`), 5) Decisiones técnicas (`AdrList`), 6) Qué haría distinto, 7) Resultado y links (estado, métricas solo si existen con fuente, links, `specUrl` solo si existe) (FR-009–FR-011)
+- [X] T031 [US3] Agregar `generateMetadata` en `app/proyectos/[slug]/page.tsx` con título y descripción del proyecto
+- [X] T032 [P] [US3] 404 de proyecto con link a `/proyectos` en `app/not-found.tsx` (con `dynamicParams = false` Next usa el 404 global, no uno del segmento) (FR-013)
 - [ ] T033 [P] [US3] (autor) Aportar en `public/media/` los diagramas de arquitectura SVG y las demos o capturas reales de cada caso de estudio
 
 **Checkpoint**: Las tres historias P1 funcionan; el sitio es presentable
