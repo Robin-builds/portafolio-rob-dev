@@ -1,3 +1,4 @@
+import { methodLine, milestones, stackBlocks } from "@/content/about";
 import { profile } from "@/content/profile";
 import { projects } from "@/content/projects";
 import type { Platform, Project } from "@/content/types";
@@ -50,8 +51,18 @@ export function validateContent(): void {
     }
   }
 
+  // Sobre mí: 4 hitos completos, los 3 bloques de stack exactos y la línea de método
+  if (milestones.length !== 4) errors.push(`about.milestones debe tener 4 hitos (tiene ${milestones.length})`);
+  const blockTitles = stackBlocks.map((b) => b.title).join(",");
+  if (blockTitles !== "Android,Web,Backend/Datos") errors.push('about.stackBlocks debe ser exactamente "Android", "Web", "Backend/Datos" en ese orden');
+  if (stackBlocks.some((b) => b.items.length === 0)) errors.push("about.stackBlocks tiene un bloque sin tecnologías");
+  if (methodLine.trim() === "") errors.push("about.methodLine está vacío");
+  for (const [path, text] of collectStrings(milestones, "about.milestones")) {
+    if (text.trim() === "") errors.push(`${path} está vacío`);
+  }
+
   // Textos de todo el contenido: sin alt vacíos ni marcadores de plantilla
-  for (const [path, text] of collectStrings(projects, "projects")) {
+  for (const [path, text] of collectStrings({ projects, milestones, stackBlocks, methodLine }, "content")) {
     if (path.endsWith(".alt") && text.trim() === "") errors.push(`${path} está vacío`);
     if (PLACEHOLDER_PATTERN.test(text)) errors.push(`${path} contiene texto de plantilla: "${text}"`);
   }
@@ -84,6 +95,11 @@ export function getProjectWithCaseStudy(slug: string): (Project & { caseStudy: N
 /** Slugs con caso de estudio, para generateStaticParams y el sitemap. */
 export function getCaseStudySlugs(): string[] {
   return projects.filter((p) => p.caseStudy).map((p) => p.slug);
+}
+
+/** Contenido de "Sobre mí" ya validado. */
+export function getAbout() {
+  return { milestones, stackBlocks, methodLine };
 }
 
 /** Lee ?plataforma=; valor ausente, desconocido o repetido → undefined ("Todos"). */

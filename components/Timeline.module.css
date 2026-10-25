@@ -1,0 +1,35 @@
+.timeline {
+  margin: 0;
+  padding: 0 0 0 var(--space-6);
+  list-style: none;
+  border-left: 2px solid var(--color-border);
+}
+
+.item {
+  position: relative;
+  padding-bottom: var(--space-8);
+}
+
+/* Punto de la línea de tiempo */
+.item::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--space-6) * -1 - 7px);
+  top: 0.4em;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.role {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-1);
+}
+
+.period,
+.tools {
+  margin-bottom: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}

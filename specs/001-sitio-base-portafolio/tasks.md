@@ -134,8 +134,8 @@ El build completo solo pasa desde T020; en esta fase la verificación es `npm ru
 
 - [ ] T034 [US4] (autor) Completar `content/about.ts` con datos reales: 4 `Milestone` en orden fijo "publicidad y brand strategy → SDR de SaaS → analista CRM → ingeniería de software" (SDR con `tools`: Salesforce, HubSpot, Dynamics 365), cada uno con `contribution`; 3 `StackBlock` con `title` exactamente "Android", "Web", "Backend/Datos" y solo tecnología dominada hoy; línea de método (Spec-Driven Development, Clean Architecture)
 - [ ] T035 [P] [US4] (autor) Copiar el CV real en PDF a `public/cv/` con el nombre de `profile.cvPath`
-- [ ] T036 [P] [US4] Crear `components/Timeline.tsx` (+ `.module.css`): lista ordenada semántica de hitos con rol, período, herramientas y habilidad que aporta
-- [ ] T037 [US4] Implementar `app/sobre-mi/page.tsx` (+ `page.module.css`): `Timeline`, 3 bloques de stack, línea de método **sin** link a `/como-trabajo` mientras no exista la Feature 003, link de descarga del CV, GitHub y LinkedIn; `metadata` propia (FR-014–FR-016)
+- [X] T036 [P] [US4] Crear `components/Timeline.tsx` (+ `.module.css`): lista ordenada semántica de hitos con rol, período, herramientas y habilidad que aporta
+- [X] T037 [US4] Implementar `app/sobre-mi/page.tsx` (+ `page.module.css`): `Timeline`, 3 bloques de stack, línea de método **sin** link a `/como-trabajo` mientras no exista la Feature 003, link de descarga del CV, GitHub y LinkedIn; `metadata` propia (FR-014–FR-016)
 
 **Checkpoint**: Sitio completo en contenido
 
