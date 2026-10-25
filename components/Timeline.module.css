@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0 0 0 var(--space-6);
   list-style: none;
-  border-left: 2px solid var(--color-border);
+  border-left: var(--border-width) solid var(--color-border);
 }
 
 .item {
@@ -10,14 +10,14 @@
   padding-bottom: var(--space-8);
 }
 
-/* Punto de la línea de tiempo */
+/* Punto de la línea de tiempo, centrado sobre la línea */
 .item::before {
   content: "";
   position: absolute;
-  left: calc(var(--space-6) * -1 - 7px);
+  left: calc(var(--space-6) * -1 - var(--dot-size) / 2 - var(--border-width) / 2);
   top: 0.4em;
-  width: 12px;
-  height: 12px;
+  width: var(--dot-size);
+  height: var(--dot-size);
   border-radius: 50%;
   background: var(--color-accent);
 }

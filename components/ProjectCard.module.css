@@ -75,3 +75,18 @@
   border-radius: var(--radius-sm);
   background: var(--color-surface);
 }
+
+/* Animación sutil solo si el visitante no pidió reducir el movimiento (FR-021) */
+@media (prefers-reduced-motion: no-preference) {
+  .card {
+    transition:
+      transform var(--duration-base) ease,
+      box-shadow var(--duration-base) ease;
+  }
+
+  .card:hover,
+  .card:focus-within {
+    transform: translateY(calc(var(--space-1) * -1));
+    box-shadow: var(--shadow-lg);
+  }
+}

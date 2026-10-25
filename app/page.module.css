@@ -37,6 +37,20 @@
   gap: var(--space-6);
 }
 
+/* Aparición suave del texto del hero; desactivada con movimiento reducido (FR-021) */
+@media (prefers-reduced-motion: no-preference) {
+  .heroText {
+    animation: rise var(--duration-base) ease-out both;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(var(--space-2));
+    }
+  }
+}
+
 .contact {
   padding-top: var(--space-12);
 }

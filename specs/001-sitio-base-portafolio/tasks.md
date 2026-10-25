@@ -172,8 +172,8 @@ como "Pendiente" y se listan en un banner (research.md R8b).
 - [ ] T043 [US6] (autor) Definir la paleta de marca y las 2 familias tipográficas (máximo)
 - [ ] T044 [US6] Aplicar las familias definitivas con `next/font/google` en `app/layout.tsx` (máximo 2, expuestas como variables CSS; verificar la firma vigente en la documentación)
 - [ ] T045 [US6] Reemplazar los valores provisionales de color y tipografía en `app/globals.css` por los definitivos; verificar contraste AA de texto y controles en cada combinación usada
-- [ ] T046 [US6] Revisar los `*.module.css` de `app/` y `components/` para que usen solo tokens (sin colores ni tamaños sueltos)
-- [ ] T047 [US6] Agregar animaciones sutiles (p. ej. aparición de tarjetas, hover) solo dentro de `@media (prefers-reduced-motion: no-preference)` en los `*.module.css` correspondientes (FR-021)
+- [X] T046 [US6] Revisar los `*.module.css` de `app/` y `components/` para que usen solo tokens (sin colores ni tamaños sueltos)
+- [X] T047 [US6] Agregar animaciones sutiles (p. ej. aparición de tarjetas, hover) solo dentro de `@media (prefers-reduced-motion: no-preference)` en los `*.module.css` correspondientes (FR-021)
 - [ ] T048 [US6] Retirar el comentario de "valores provisionales" de `app/globals.css` una vez aplicada la identidad
 
 **Checkpoint**: Todas las historias completas
