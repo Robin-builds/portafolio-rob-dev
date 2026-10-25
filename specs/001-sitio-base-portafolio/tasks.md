@@ -97,8 +97,8 @@ El build completo solo pasa desde T020; en esta fase la verificación es `npm ru
 
 ### Implementation for User Story 2
 
-- [ ] T025 [P] [US2] Crear `components/PlatformFilter.tsx` (+ `.module.css`) sin JS: tres links (`/proyectos`, `/proyectos?plataforma=android`, `/proyectos?plataforma=web`) con `aria-current="page"` en el activo y foco visible
-- [ ] T026 [US2] Implementar `app/proyectos/page.tsx` (+ `page.module.css`): `searchParams` como `Promise` con `await`, `parsePlatform()` (desconocido → Todos), `getProjects(platform)` y grilla de `ProjectCard`; estado vacío con mensaje y link a "Todos"; `metadata` propia (FR-006, FR-007)
+- [X] T025 [P] [US2] Crear `components/PlatformFilter.tsx` (+ `.module.css`) sin JS: tres links (`/proyectos`, `/proyectos?plataforma=android`, `/proyectos?plataforma=web`) con `aria-current="page"` en el activo y foco visible
+- [X] T026 [US2] Implementar `app/proyectos/page.tsx` (+ `page.module.css`): `searchParams` como `Promise` con `await`, `parsePlatform()` (desconocido → Todos), `getProjects(platform)` y grilla de `ProjectCard`; estado vacío con mensaje y link a "Todos"; `metadata` propia (FR-006, FR-007)
 - [ ] T027 [P] [US2] (autor, opcional) Agregar a `content/projects.ts` proyectos no destacados reales; los que no tengan caso de estudio deben tener `problem`, `role` y ≥ 1 link real
 
 **Checkpoint**: Home + Proyectos funcionan de forma independiente
