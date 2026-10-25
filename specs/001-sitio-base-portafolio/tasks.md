@@ -149,11 +149,11 @@ El build completo solo pasa desde T020; en esta fase la verificación es `npm ru
 
 ### Implementation for User Story 5
 
-- [ ] T038 [P] [US5] Revisar que `app/page.tsx`, `app/proyectos/page.tsx` y `app/sobre-mi/page.tsx` exportan `metadata` con `title`, `description` y `openGraph` propios
-- [ ] T039 [P] [US5] Crear `app/opengraph-image.tsx` con `ImageResponse` de `next/og`, `size = { width: 1200, height: 630 }`, `contentType = 'image/png'`, `alt`; muestra nombre y tagline
-- [ ] T040 [P] [US5] Crear `app/proyectos/[slug]/opengraph-image.tsx` con `ImageResponse`, mismo `size` y `contentType`, `params` como `Promise`; muestra nombre del proyecto y plataforma (FR-018)
-- [ ] T041 [P] [US5] Crear `app/sitemap.ts` (`MetadataRoute.Sitemap`) con `/`, `/proyectos`, `/sobre-mi` y cada slug de `getCaseStudySlugs()`, usando `profile.siteUrl`
-- [ ] T042 [P] [US5] Crear `app/robots.ts` (`MetadataRoute.Robots`): permite todo y apunta a `${siteUrl}/sitemap.xml` (FR-019)
+- [X] T038 [P] [US5] Revisar que `app/page.tsx`, `app/proyectos/page.tsx` y `app/sobre-mi/page.tsx` exportan `metadata` con `title`, `description` y `openGraph` propios
+- [X] T039 [P] [US5] Crear `app/opengraph-image.tsx` con `ImageResponse` de `next/og`, `size = { width: 1200, height: 630 }`, `contentType = 'image/png'`, `alt`; muestra nombre y tagline
+- [X] T040 [P] [US5] Crear `app/proyectos/[slug]/opengraph-image.tsx` con `ImageResponse`, mismo `size` y `contentType`, `params` como `Promise`; muestra nombre del proyecto y plataforma (FR-018)
+- [X] T041 [P] [US5] Crear `app/sitemap.ts` (`MetadataRoute.Sitemap`) con `/`, `/proyectos`, `/sobre-mi` y cada slug de `getCaseStudySlugs()`, usando `profile.siteUrl`
+- [X] T042 [P] [US5] Crear `app/robots.ts` (`MetadataRoute.Robots`): permite todo y apunta a `${siteUrl}/sitemap.xml` (FR-019)
 
 **Checkpoint**: Sitio indexable y compartible
 
