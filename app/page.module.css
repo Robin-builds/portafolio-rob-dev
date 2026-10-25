@@ -1,0 +1,63 @@
+/* Mobile-first: en 360px el texto va arriba y el teléfono debajo, ambos en la primera pantalla */
+.hero {
+  display: grid;
+  gap: var(--space-8);
+  align-items: center;
+  padding-block: var(--space-8) var(--space-12);
+}
+
+.heroText {
+  max-width: 38rem;
+}
+
+.tagline {
+  font-size: var(--text-3xl);
+}
+
+.focus {
+  font-size: var(--text-lg);
+}
+
+.differentiator {
+  color: var(--color-text-muted);
+}
+
+.cta {
+  display: inline-block;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.contact {
+  padding-top: var(--space-12);
+}
+
+@media (min-width: 40rem) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .hero {
+    grid-template-columns: 1.4fr 1fr;
+    padding-block: var(--space-16);
+  }
+
+  .tagline {
+    font-size: calc(var(--text-3xl) * 1.3);
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
