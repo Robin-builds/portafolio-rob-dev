@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, Segoe UI, sans-serif">
+  <title id="t">Arquitectura del portafolio</title>
+  <desc id="d">El navegador pide páginas a Vercel. Next.js App Router renderiza en el servidor las rutas de app, que usan componentes de components; el único componente de cliente es el video del Home. Las páginas leen el contenido solo a través de lib/content.ts, que consulta y valida los datos tipados de content y en producción hace fallar el build si una regla se rompe. Los medios se sirven desde public/media.</desc>
+  <rect width="1600" height="900" fill="#faf8f5"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#57534e"/>
+    </marker>
+  </defs>
+
+  <!-- Navegador -->
+  <rect x="600" y="40" width="400" height="80" rx="14" fill="#ffffff" stroke="#57534e" stroke-width="2"/>
+  <text x="800" y="88" font-size="28" font-weight="600" text-anchor="middle" fill="#1c1b19">Navegador del visitante</text>
+  <line x1="800" y1="120" x2="800" y2="172" stroke="#57534e" stroke-width="3" marker-end="url(#a)"/>
+
+  <!-- Vercel + Next.js -->
+  <rect x="140" y="180" width="1320" height="520" rx="20" fill="#f1ece4" stroke="#ddd6cc" stroke-width="2"/>
+  <text x="180" y="225" font-size="26" font-weight="700" fill="#1c1b19">Vercel · Next.js App Router · TypeScript strict</text>
+
+  <!-- app/ -->
+  <rect x="180" y="255" width="600" height="190" rx="14" fill="#ffffff" stroke="#0f766e" stroke-width="3"/>
+  <text x="210" y="298" font-size="26" font-weight="700" fill="#0f766e">app/ · rutas (Server Components)</text>
+  <text x="210" y="338" font-size="22" fill="#1c1b19">/  ·  /proyectos?plataforma=  ·  /proyectos/[slug]</text>
+  <text x="210" y="372" font-size="22" fill="#1c1b19">/sobre-mi  ·  404  ·  sitemap  ·  robots</text>
+  <text x="210" y="406" font-size="22" fill="#57534e">imágenes Open Graph generadas en build</text>
+
+  <!-- components/ -->
+  <rect x="820" y="255" width="600" height="190" rx="14" fill="#ffffff" stroke="#57534e" stroke-width="2"/>
+  <text x="850" y="298" font-size="26" font-weight="700" fill="#1c1b19">components/ · UI con CSS Modules</text>
+  <text x="850" y="338" font-size="22" fill="#1c1b19">ProjectCard · PlatformFilter · AdrList</text>
+  <text x="850" y="372" font-size="22" fill="#1c1b19">Timeline · MediaView · DraftBanner</text>
+  <text x="850" y="406" font-size="22" fill="#92400e">PhoneVideo: único componente de cliente</text>
+  <line x1="780" y1="350" x2="812" y2="350" stroke="#57534e" stroke-width="3" marker-end="url(#a)"/>
+
+  <!-- lib/content.ts -->
+  <line x1="480" y1="445" x2="480" y2="497" stroke="#57534e" stroke-width="3" marker-end="url(#a)"/>
+  <rect x="180" y="505" width="600" height="160" rx="14" fill="#ffffff" stroke="#0f766e" stroke-width="3"/>
+  <text x="210" y="548" font-size="26" font-weight="700" fill="#0f766e">lib/content.ts</text>
+  <text x="210" y="588" font-size="22" fill="#1c1b19">consultas: destacados, filtro, caso de estudio</text>
+  <text x="210" y="622" font-size="22" fill="#1c1b19">validación: producción falla si falta un dato;</text>
+  <text x="210" y="652" font-size="22" fill="#1c1b19">local y previews muestran "Pendiente"</text>
+
+  <!-- public/media -->
+  <rect x="820" y="505" width="600" height="160" rx="14" fill="#ffffff" stroke="#57534e" stroke-width="2"/>
+  <text x="850" y="548" font-size="26" font-weight="700" fill="#1c1b19">public/media · public/cv</text>
+  <text x="850" y="588" font-size="22" fill="#1c1b19">video del Home, capturas, diagramas</text>
+  <text x="850" y="622" font-size="22" fill="#1c1b19">optimizados con next/image</text>
+
+  <!-- content/ -->
+  <line x1="480" y1="665" x2="480" y2="747" stroke="#57534e" stroke-width="3" marker-end="url(#a)"/>
+  <rect x="180" y="755" width="600" height="110" rx="14" fill="#ffffff" stroke="#57534e" stroke-width="2"/>
+  <text x="210" y="798" font-size="26" font-weight="700" fill="#1c1b19">content/ · datos tipados (sin CMS)</text>
+  <text x="210" y="838" font-size="22" fill="#1c1b19">profile.ts · projects.ts · about.ts · types.ts</text>
+
+  <!-- Nota Spec Kit -->
+  <rect x="820" y="755" width="600" height="110" rx="14" fill="#ffffff" stroke="#ddd6cc" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="850" y="798" font-size="26" font-weight="700" fill="#1c1b19">Spec Kit (fuera del runtime)</text>
+  <text x="850" y="838" font-size="22" fill="#57534e">constitución → spec → plan → tareas → código</text>
+</svg>
