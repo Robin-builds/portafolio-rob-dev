@@ -1,50 +1,81 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Constitución — Portafolio Robinson Arriagada
 
-## Core Principles
+## Principios fundamentales
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Posicionamiento: Android primero, web al mismo nivel
+El portafolio comunica "Software Engineer: Android y Web". Android nativo es el foco declarado; la
+web se muestra como competencia equivalente, no como complemento. Toda sección (home, proyectos,
+about) MUST reflejar ambas caras sin esconder la preferencia por Android.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Contenido honesto y verificable
+- Solo se lista tecnología que el autor domina hoy. Fuera: Flutter, Dart, Java, Spring Boot, JPA,
+  Oracle/APEX, Bootstrap, salvo en una sección explícita de "experiencia previa".
+- Cada proyecto publicado MUST tener: problema, stack, rol, estado y al menos un link real
+  (Play Store, demo o repo).
+- Prohibido en producción: placeholders ("Descripción..."), texto de plantilla, proyectos ficticios
+  o ejemplos genéricos presentados como propios.
+- Proyectos en desarrollo se marcan con estado "En desarrollo"; nunca se presentan como terminados.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Stack cerrado (NON-NEGOTIABLE)
+- Framework: Next.js (App Router) + TypeScript en modo `strict`.
+- Datos: Supabase (Postgres).
+- Despliegue: Vercel. Repositorio remoto en GitHub.
+- Estilos: CSS Modules / CSS nativo. Sin librerías de UI ni frameworks CSS.
+- Cualquier tecnología fuera de esta lista requiere una enmienda a esta constitución antes de
+  entrar al plan.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Simplicidad
+- Server Components por defecto; `"use client"` solo donde haya interactividad real (filtro,
+  formulario, animaciones).
+- Sin librerías de estado, sin capas, interfaces ni abstracciones que la spec no pida.
+- Si algo parece necesitar una abstracción, se declara en una línea en el plan y se espera
+  confirmación.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Contenido separado del código
+Los proyectos viven como datos tipados en `/content` (objetos TypeScript). Agregar o editar un
+proyecto no toca componentes. Cada proyecto lleva una etiqueta de plataforma (`android` | `web`)
+que alimenta el filtro Todos / Android / Web.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### VI. Seguridad de datos
+- Supabase se usa solo donde aporta (formulario de contacto persistido). Si no hay un caso real,
+  no hay tabla.
+- RLS activado en toda tabla. El cliente usa únicamente la anon key; la service role key nunca
+  llega al navegador ni al repo.
+- El formulario valida en el servidor (Server Action o Route Handler) y tiene protección anti-spam
+  simple (honeypot + límite de envíos).
+- Secretos solo en variables de entorno de Vercel; `.env.local` en `.gitignore`.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### VII. Calidad mínima medible
+- Mobile-first y responsive desde 360 px.
+- Accesibilidad nivel WCAG AA: contraste, foco visible, navegación por teclado, HTML semántico,
+  `alt` en imágenes.
+- Lighthouse ≥ 90 en Performance, Accessibility, Best Practices y SEO (mobile).
+- `next/image` para imágenes; metadata y Open Graph por página.
+- Idioma del sitio: español.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### VIII. Spec-Driven Development
+- Nada se implementa sin ciclo completo: spec → plan → tasks → implement (Spec Kit).
+- Un cambio de alcance vuelve a la spec; no se resuelve parcheando código.
+- Cada feature en su rama; commits pequeños y descriptivos (Conventional Commits) en GitHub.
+- Todo plan MUST incluir un "Constitution Check" contra estos principios antes de generar tasks.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Reglas de trabajo con el agente
 
-## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+- Archivos completos y pegables, nunca fragmentos con "…el resto igual".
+- Comentarios inline en cada bloque no obvio, explicando qué hace y por qué.
+- Antes de usar la API de una librería (Next.js, Supabase), verificarla en documentación vigente;
+  no inventar firmas.
+- No instalar dependencias ni ejecutar comandos con efectos (instalar, migrar, desplegar) sin
+  confirmación previa.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+## Gobernanza
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+- Esta constitución prevalece sobre cualquier plan o tarea que la contradiga.
+- Las enmiendas se registran con versión, fecha y motivo; el cambio de stack (Principio III) exige
+  enmienda explícita.
+- Versionado semántico: MAJOR por eliminar o redefinir un principio de forma incompatible; MINOR
+  por añadir un principio o ampliar materialmente una guía; PATCH por aclaraciones de redacción.
+- Cumplimiento: cada plan verifica el "Constitution Check" (Principio VIII) y toda desviación se
+  justifica por escrito o se resuelve con una enmienda.
+
+**Versión**: 1.0.0 | **Ratificada**: 2026-10-24 | **Última enmienda**: 2026-10-24
