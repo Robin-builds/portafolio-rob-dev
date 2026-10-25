@@ -1,0 +1,21 @@
+.badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid currentColor;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.publicado {
+  color: var(--color-status-published);
+}
+
+.en-desarrollo {
+  color: var(--color-status-progress);
+}
+
+.prototipo {
+  color: var(--color-status-prototype);
+}
