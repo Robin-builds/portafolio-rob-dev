@@ -40,7 +40,7 @@ Un solo proyecto Next.js en la raíz del repositorio, sin `src/`: `app/`, `compo
 - [X] T003 Eliminar del scaffold el contenido de ejemplo (página demo, estilos y SVG de ejemplo) en `app/page.tsx`, `app/page.module.css`, `app/globals.css` y `public/`
 - [X] T004 Confirmar `"strict": true` y el alias `@/*` en `tsconfig.json`; agregar el script `"typecheck": "tsc --noEmit"` en `package.json`
 - [X] T005 [P] Crear las carpetas vacías del plan: `components/`, `content/`, `lib/`, `public/media/`, `public/cv/`
-- [ ] T006 (confirmar) Crear el repositorio público en GitHub, agregar el remote `origin` y hacer push de `main` y `001-sitio-base-portafolio`; su URL es el link real (`kind: "repo"`) y la base del `specUrl` del proyecto portafolio (Principios II, III y VIII)
+- [X] T006 (confirmar) Crear el repositorio público en GitHub, agregar el remote `origin` y hacer push de `main` y `001-sitio-base-portafolio`; su URL es el link real (`kind: "repo"`) y la base del `specUrl` del proyecto portafolio (Principios II, III y VIII)
 
 ---
 
